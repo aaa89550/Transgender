@@ -1,0 +1,311 @@
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>身分證的重量</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .section {
+            display: none;
+            min-height: 100vh;
+            opacity: 0;
+            transition: opacity 0.7s ease-in-out;
+        }
+        .section.active {
+            display: flex;
+            opacity: 1;
+        }
+        .btn {
+            @apply w-full px-6 py-3 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800;
+        }
+        .btn-primary {
+            @apply bg-teal-600 text-white hover:bg-teal-700 focus:ring-teal-500;
+        }
+        .btn-secondary {
+            @apply bg-gray-700 text-gray-200 hover:bg-gray-600 border border-gray-600 focus:ring-gray-500;
+        }
+        .progress-bar-container {
+            @apply w-full bg-gray-700 rounded-full h-4 overflow-hidden;
+        }
+        .progress-bar {
+            @apply h-4 rounded-full transition-all duration-500 ease-out;
+        }
+        .character-image {
+            @apply w-56 h-56 object-cover rounded-full bg-gray-700 shadow-lg mb-6;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300 flex min-h-screen">
+
+    <!-- Stats Display -->
+    <div id="stats-container" class="fixed top-0 left-0 h-screen w-16 md:w-64 bg-gray-900 bg-opacity-80 backdrop-blur-sm z-10 p-4 hidden md:flex flex-col justify-center space-y-6">
+        <div>
+            <div class="flex justify-between mb-1 text-sm font-medium text-teal-300">
+                <span class="hidden md:inline">勇氣值</span>
+                <span id="courage-value">50</span>
+            </div>
+            <div class="progress-bar-container">
+                <div id="courage-bar" class="progress-bar bg-teal-500" style="width: 50%"></div>
+            </div>
+        </div>
+        <div>
+            <div class="flex justify-between mb-1 text-sm font-medium text-red-400">
+                <span class="hidden md:inline">疲累度</span>
+                <span id="exhaustion-value">20</span>
+            </div>
+            <div class="progress-bar-container">
+                <div id="exhaustion-bar" class="progress-bar bg-red-600" style="width: 20%"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-container" class="w-full flex-grow flex items-center justify-center p-4 md:ml-64">
+        <div class="w-full max-w-3xl mx-auto">
+
+            <!-- Home Section -->
+            <section id="home" class="section active flex-col items-center justify-center text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">身分證的重量</h1>
+                <p class="text-lg md:text-xl mb-8">為了成為真正的自己，你願意付出多少代價？</p>
+                <button id="start-btn" class="btn btn-primary">開始旅程</button>
+            </section>
+
+            <!-- Chapter 1 -->
+            <section id="level1" class="section flex-col items-center justify-center">
+                <div class="text-center">
+                    <img id="img-level1" src="images/Gemini_Generated_Image_路人.png" alt="路人" class="character-image mx-auto">
+                    <h2 class="text-3xl font-bold text-white mb-2">第ㄧ章：日常生活中的地雷</h2>
+                    <p class="text-gray-400 mb-6">在銀行櫃檯，行員大聲喊出你身分證上的名字與性別，全場目光瞬間聚焦在你身上。</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl w-full">
+                    <p class="text-center mb-6">在眾目睽睽之下，你決定...</p>
+                    <div class="flex flex-col items-center gap-4">
+                        <button data-choice="1A" class="btn btn-secondary">A. 低頭解釋：拿出文宣，試圖教育對方。</button>
+                        <button data-choice="1B" class="btn btn-secondary">B. 沈默忍受：迅速辦完業務，逃離現場。</button>
+                    </div>
+                </div>
+            </section>
+
+<!-- Chapter 1 (Old Chapter 3) -->
+        <section id="level1" class="section flex-col items-center justify-center">
+            <div class="text-center">
+                <img id="img-level1" src="images/路人.png" alt="路人" class="character-image mx-auto">
+                <h2 class="text-3xl font-bold text-white mb-2">第一章：日常生活中的地雷</h2>
+                <p class="text-gray-400 mb-6">在銀行櫃檯，行員大聲喊出你身分證上的名字與性別，全場目光瞬間聚焦在你身上。</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-xl w-full">
+                <p class="text-center mb-6">在眾目睽睽之下，你決定...</p>
+                <div class="flex flex-col items-center gap-4">
+                    <button data-choice="1A" class="btn btn-secondary">A. 低頭解釋：拿出文宣，試圖教育對方。</button>
+                    <button data-choice="1B" class="btn btn-secondary">B. 沈默忍受：迅速辦完業務，逃離現場。</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 2 (Old Chapter 1) -->
+        <section id="level2" class="section flex-col items-center justify-center">
+            <div class="text-center">
+                <img id="img-level2" src="images/Gemini_Generated_Image_qpcqmkqpcqmkqpcq.png" alt="醫師" class="character-image mx-auto">
+                <h2 class="text-3xl font-bold text-white mb-2">第二章：白色巨塔的審判</h2>
+                <p class="text-gray-400 mb-6">精神科診間，空氣中瀰漫著消毒水味。你需要兩張不同醫師的診斷證明。</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-xl w-full">
+                <p class="text-center mb-6">面對醫師的詰問，你決定...</p>
+                <div class="flex flex-col items-center gap-4">
+                    <button data-choice="2A" class="btn btn-secondary">A. 誠實面對：告訴醫師你的性別掙扎。</button>
+                    <button data-choice="2B" class="btn btn-secondary">B. 扮演範本：說出醫師想聽的標準答案。</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 3 (Old Chapter 2) -->
+        <section id="level3" class="section flex-col items-center justify-center">
+            <div class="text-center">
+                <img id="img-level3" src="images/Gemini_Generated_Image_sivjinsivjinsivj.png" alt="主角" class="character-image mx-auto">
+                <h2 class="text-3xl font-bold text-white mb-2">第三章：手術台上的勒索</h2>
+                <p class="text-gray-400 mb-6">法律規定，換證必須摘除性器官。你望著戶頭餘額與手術同意書，陷入兩難。</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-xl w-full">
+                <p class="text-center mb-6">面對這場昂貴且不可逆的「交易」，你選擇...</p>
+                <div class="flex flex-col items-center gap-4">
+                    <button data-choice="3A" class="btn btn-secondary">A. 舉債手術：背負風險與債務，換取「門票」。</button>
+                    <button data-choice="3B" class="btn btn-secondary">B. 拒絕閹割：為了健康或經濟，拒絕強迫手術。</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chapter 3 -->
+            <section id="level3" class="section flex-col items-center justify-center">
+                <div class="text-center">
+                    <img id="img-level3" src="images/Gemini_Generated_Image_sivjinsivjinsivj.png" alt="主角" class="character-image mx-auto">
+                    <h2 class="text-3xl font-bold text-white mb-2">第三章：手術台上的勒索</h2>
+                    <p class="text-gray-400 mb-6">法律規定，換證必須摘除性器官。你望著戶頭餘額與手術同意書，陷入兩難。</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl w-full">
+                    <p class="text-center mb-6">面對這場昂貴且不可逆的「交易」，你選擇...</p>
+                    <div class="flex flex-col items-center gap-4">
+                        <button data-choice="3A" class="btn btn-secondary">A. 舉債手術：背負風險與債務，換取「門票」。</button>
+                        <button data-choice="3B" class="btn btn-secondary">B. 拒絕閹割：為了健康或經濟，拒絕強迫手術。</button>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Result Page -->
+            <section id="result" class="section flex-col items-center justify-center text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">你的終點</h2>
+                <p id="result-text" class="text-lg mb-8 max-w-md bg-gray-800 p-4 rounded"></p>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg mt-4">
+                    <p class="text-xl font-bold text-teal-400 mb-4">這不只是遊戲，這是 2026 年台灣跨性別者的日常。</p>
+                    <p class="text-2xl font-bold text-white mb-6">支持伴盟「換證免術」訴訟與立法推動，讓每個人都能有尊嚴地做自己。</p>
+                    <div class="w-full space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
+                        <a href="https://tapcpr.org/donate" target="_blank" class="btn btn-primary">捐款支持伴盟</a>
+                        <button id="share-btn" class="btn btn-secondary">分享這個故事</button>
+                    </div>
+                </div>
+                <button id="restart-btn" class="mt-8 text-gray-400 hover:text-white transition-colors">重新開始</button>
+            </section>
+
+            <!-- Game Over Page -->
+            <section id="game-over" class="section flex-col items-center justify-center text-center bg-black">
+                <h2 class="text-4xl font-bold text-red-600 mb-4">你已精疲力竭</h2>
+                <p class="text-xl text-gray-400 mb-8">在無盡的消耗中，你選擇退回陰影裡。</p>
+                <button id="restart-game-over-btn" class="btn btn-primary">再試一次</button>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section');
+            const startBtn = document.getElementById('start-btn');
+            const statsContainer = document.getElementById('stats-container');
+            
+            const courageBar = document.getElementById('courage-bar');
+            const exhaustionBar = document.getElementById('exhaustion-bar');
+            const courageValueText = document.getElementById('courage-value');
+            const exhaustionValueText = document.getElementById('exhaustion-value');
+
+            const restartBtn = document.getElementById('restart-btn');
+            const restartGameOverBtn = document.getElementById('restart-game-over-btn');
+            const shareBtn = document.getElementById('share-btn');
+
+            let stats = { courage: 50, exhaustion: 20 };
+
+            const choices = {
+                // New Chapter 1 (Old 3)
+                '1A': { courage: 5, exhaustion: 25, next: 'level2' }, // 低頭解釋，需要勇氣但更累
+                '1B': { courage: -5, exhaustion: 15, next: 'level2' }, // 沈默忍受，傷自尊但省事
+                
+                // New Chapter 2 (Old 1)
+                '2A': { courage: -10, exhaustion: 20, next: 'level3' }, // 誠實面對，被質疑很累
+                '2B': { courage: 0, exhaustion: 10, next: 'level3' }, // 扮演範本，內心消耗
+                
+                // New Chapter 3 (Old 2) - Endings
+                '3A': { courage: 30, exhaustion: 40, next: 'resultA' }, // 舉債手術
+                '3B': { courage: -20, exhaustion: 50, next: 'resultB' }, // 拒絕閹割
+            };
+
+            function updateStatsDisplay() {
+                stats.courage = Math.max(0, Math.min(100, stats.courage));
+                stats.exhaustion = Math.max(0, Math.min(100, stats.exhaustion));
+
+                courageValueText.textContent = stats.courage;
+                exhaustionValueText.textContent = stats.exhaustion;
+
+                courageBar.style.width = `${stats.courage}%`;
+                exhaustionBar.style.width = `${stats.exhaustion}%`;
+            }
+
+            function resetGame() {
+                stats = { courage: 50, exhaustion: 20 };
+                updateStatsDisplay();
+                statsContainer.classList.add('hidden');
+                showSection('home');
+            }
+
+            function showSection(id) {
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                const activeSection = document.getElementById(id);
+                if (activeSection) {
+                    // A short delay to allow the fade-out to be noticeable
+                    setTimeout(() => activeSection.classList.add('active'), 100);
+                }
+            }
+
+            function handleChoice(event) {
+                const choiceId = event.target.dataset.choice;
+                if (!choiceId || !choices[choiceId]) return;
+
+                const effect = choices[choiceId];
+                stats.courage += effect.courage;
+                stats.exhaustion += effect.exhaustion;
+                
+                updateStatsDisplay();
+
+                if (stats.exhaustion >= 100) {
+                    showSection('game-over');
+                    return;
+                }
+
+                switch (effect.next) {
+                    case 'resultA':
+                        showResult('A');
+                        break;
+                    case 'resultB':
+                        showResult('B');
+                        break;
+                    default:
+                        showSection(effect.next);
+                }
+            }
+
+            function showResult(endingType) {
+                const resultText = document.getElementById('result-text');
+                if (endingType === 'A') {
+                    resultText.textContent = "你終於拿到了這張卡片。它很輕，但你付出了身體、金錢與無數的尊嚴。這真的公平嗎？";
+                } else { // Ending B
+                    resultText.textContent = "你依然是你，但法律拒絕承認。每天出門，你都像是在異國闖蕩的非法移民。";
+                }
+                showSection('result');
+            }
+
+            startBtn.addEventListener('click', () => {
+                statsContainer.classList.remove('hidden');
+                statsContainer.classList.add('md:flex');
+                showSection('level1');
+            });
+            
+            document.querySelectorAll('.section button[data-choice]').forEach(button => {
+                button.addEventListener('click', handleChoice);
+            });
+
+            restartBtn.addEventListener('click', resetGame);
+            restartGameOverBtn.addEventListener('click', resetGame);
+
+            shareBtn.addEventListener('click', () => {
+                const shareUrl = window.location.href;
+                const shareText = '我玩了「身分證的重量」，體驗跨性別者在台灣的真實困境。一起支持 #換證免術，讓每個人都能有尊嚴地做自己。';
+                if (navigator.share) {
+                    navigator.share({
+                        title: '身分證的重量',
+                        text: shareText,
+                        url: shareUrl,
+                    }).catch(console.error);
+                } else {
+                    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+                    window.open(twitterUrl, '_blank');
+                }
+            });
+
+            // Initial setup
+            resetGame();
+        });
+    </script>
+</body>
+</html>
