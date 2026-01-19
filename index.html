@@ -161,20 +161,20 @@
             const restartGameOverBtn = document.getElementById('restart-game-over-btn');
             const shareBtn = document.getElementById('share-btn');
 
-            let stats = { courage: 50, exhaustion: 20 };
+            let stats = { courage: 50, exhaustion: 10 };
 
             const choices = {
-                // New Chapter 1 (Old 3)
-                '1A': { courage: 5, exhaustion: 25, next: 'level2' }, // 低頭解釋，需要勇氣但更累
-                '1B': { courage: -5, exhaustion: 15, next: 'level2' }, // 沈默忍受，傷自尊但省事
-                
-                // New Chapter 2 (Old 1)
-                '2A': { courage: -10, exhaustion: 20, next: 'level3' }, // 誠實面對，被質疑很累
-                '2B': { courage: 0, exhaustion: 10, next: 'level3' }, // 扮演範本，內心消耗
-                
-                // New Chapter 3 (Old 2) - Endings
-                '3A': { courage: 30, exhaustion: 40, next: 'resultA' }, // 舉債手術
-                '3B': { courage: -20, exhaustion: 50, next: 'resultB' }, // 拒絕閹割
+                // Chapter 1: 日常生活中的地雷
+                '1A': { courage: 10, exhaustion: 15, next: 'level2' }, // 解釋需要勇氣，但非常累
+                '1B': { courage: -10, exhaustion: 5, next: 'level2' },  // 忍受打擊自尊，但身體較省力
+
+                // Chapter 2: 白色巨塔的審判
+                '2A': { courage: 15, exhaustion: 20, next: 'level3' }, // 誠實面對需要極大勇氣，且過程艱辛
+                '2B': { courage: -5, exhaustion: 10, next: 'level3' },  // 扮演範本消耗心力，但過程較順利
+
+                // Chapter 3: 手術台上的勒索 - 終局
+                '3A': { courage: 30, exhaustion: 40, next: 'resultA' }, // 做出重大決定，身心都付出巨大代價
+                '3B': { courage: -25, exhaustion: 25, next: 'resultB' }, // 捍衛身體但失去希望，感到挫敗
             };
 
             function updateStatsDisplay() {
